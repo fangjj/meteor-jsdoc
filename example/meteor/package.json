@@ -1,5 +1,5 @@
 {
-  "name": "Meteor Project Docs",
+  "name": "meteor-project-jsdocs",
   "private": true,
   "scripts": {
     "start": "meteor run"
