@@ -135,6 +135,19 @@ Template.autoApiBox.helpers({
       });
 
       signature += paramNames.join(", ") + ")";
+    } else if (this.ispublish) {
+      signature = "Meteor.subscribe(\"" + escapedLongname + "\", ";
+      params    = this.params;
+
+      paramNames = _.map(params, param => {
+        if (param.optional) {
+          return "[" + param.name + "]";
+        }
+
+        return param.name;
+      });
+
+      signature += paramNames.join(", ") + ")";
     } else {
       let beforeParens = escapedLongname;
 
