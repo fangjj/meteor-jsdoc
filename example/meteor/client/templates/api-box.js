@@ -137,6 +137,25 @@ Template.autoApiBox.helpers({
       signature += paramNames.join(", ") + ")";
     } else if (this.ispublish) {
       signature = "Meteor.subscribe(\"" + escapedLongname + "\", ";
+      if (this.memberof) {
+        signature = signature.replace(this.memberof + '.','');
+      }
+      params    = this.params;
+
+      paramNames = _.map(params, param => {
+        if (param.optional) {
+          return "[" + param.name + "]";
+        }
+
+        return param.name;
+      });
+
+      signature += paramNames.join(", ") + ")";
+    } else if (this.iscollection) {
+      signature = "Mongo.Collection(\"" + escapedLongname + "\", ";
+      if (this.memberof) {
+        signature = signature.replace(this.memberof + '.','');
+      }
       params    = this.params;
 
       paramNames = _.map(params, param => {
