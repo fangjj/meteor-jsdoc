@@ -5,6 +5,14 @@ Automated JSDoc generation for Meteor projects.
 
 ## ChangeLog
 
+### 1.0.6
+- Added @isPublish tag for documenting publications
+- Added @isCollection tag for documenting MongoDB.Collections
+
+### 1.0.5
+- Merged pull requests from @trayhem and @emilianosantucci
+- Fixes missing underscore package and updates Meteor to 1.4.2.3
+
 ### 1.0.4
 
 - Fixed missing quotes for `@isMethod`.
